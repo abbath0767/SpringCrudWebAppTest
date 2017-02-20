@@ -65,4 +65,12 @@ public class User implements Serializable{
     public void setCreatedDate(Long createdDate) {
         this.createdDate = createdDate;
     }
+
+    public User(Long id, String name, Integer age, boolean isAdmin, Long createdDate) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.isAdmin = isAdmin;
+        this.createdDate = createdDate;
+    }
 }

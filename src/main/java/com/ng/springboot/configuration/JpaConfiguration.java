@@ -41,7 +41,7 @@ public class JpaConfiguration {
     /*
      * Populate SpringBoot DataSourceProperties object directly from application.yml
      * based on prefix.Thanks to .yml, Hierachical data is mapped out of the box with matching-name
-     * properties of DataSourceProperties object].
+     * properties of DataSourceProperties object.
      */
     @Bean
     @Primary
