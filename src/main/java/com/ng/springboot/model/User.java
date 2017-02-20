@@ -62,9 +62,9 @@ public class User implements Serializable{
         return createdDate;
     }
 
-    public void setCreatedDate(Long createdDate) {
-        this.createdDate = createdDate;
-    }
+//    public void setCreatedDate(Long createdDate) {
+//        this.createdDate = createdDate;
+//    }
 
     @Override
     public String toString() {
