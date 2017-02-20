@@ -66,11 +66,14 @@ public class User implements Serializable{
         this.createdDate = createdDate;
     }
 
-    public User(Long id, String name, Integer age, boolean isAdmin, Long createdDate) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
-        this.isAdmin = isAdmin;
-        this.createdDate = createdDate;
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", isAdmin=" + isAdmin +
+                ", createdDate=" + createdDate +
+                '}';
     }
 }
