@@ -4,6 +4,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Table(name = "APP_USER")
@@ -24,7 +25,12 @@ public class User implements Serializable{
     private boolean isAdmin;
 
     @Column(name = "CREATED_DATE", nullable = false)
-    private Long createdDate;
+    private Date createdDate;
+
+    @PrePersist
+    protected void onCreate() {
+        createdDate = new Date();
+    }
 
     public Long getId() {
         return id;
@@ -58,7 +64,7 @@ public class User implements Serializable{
         isAdmin = admin;
     }
 
-    public Long getCreatedDate() {
+    public Date getCreatedDate() {
         return createdDate;
     }
 

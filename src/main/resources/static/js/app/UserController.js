@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('crudApp').controller('UserController',
-    ['UserService', '$scope',  function( UserService, $scope) {
+    ['UserService', '$scope', function (UserService, $scope) {
 
         var self = this;
         self.user = {};
-        self.users=[];
+        self.users = [];
 
         self.submit = submit;
         self.getAllUsers = getAllUsers;
@@ -40,49 +40,49 @@ angular.module('crudApp').controller('UserController',
                     function (response) {
                         console.log('User created successfully');
                         self.successMessage = 'User created successfully';
-                        self.errorMessage='';
+                        self.errorMessage = '';
                         self.done = true;
-                        self.user={};
+                        self.user = {};
                         $scope.myForm.$setPristine();
                     },
                     function (errResponse) {
                         console.error('Error while creating User');
                         self.errorMessage = 'Error while creating User: ' + errResponse.data.errorMessage;
-                        self.successMessage='';
+                        self.successMessage = '';
                     }
                 );
         }
 
 
-        function updateUser(user, id){
+        function updateUser(user, id) {
             console.log('About to update user');
             UserService.updateUser(user, id)
                 .then(
-                    function (response){
+                    function (response) {
                         console.log('User updated successfully');
-                        self.successMessage='User updated successfully';
-                        self.errorMessage='';
+                        self.successMessage = 'User updated successfully';
+                        self.errorMessage = '';
                         self.done = true;
                         $scope.myForm.$setPristine();
                     },
-                    function(errResponse){
+                    function (errResponse) {
                         console.error('Error while updating User');
-                        self.errorMessage='Error while updating User '+errResponse.data;
-                        self.successMessage='';
+                        self.errorMessage = 'Error while updating User ' + errResponse.data;
+                        self.successMessage = '';
                     }
                 );
         }
 
 
-        function removeUser(id){
-            console.log('About to remove User with id '+id);
+        function removeUser(id) {
+            console.log('About to remove User with id ' + id);
             UserService.removeUser(id)
                 .then(
-                    function(){
-                        console.log('User '+id + ' removed successfully');
+                    function () {
+                        console.log('User ' + id + ' removed successfully');
                     },
-                    function(errResponse){
-                        console.error('Error while removing user '+id +', Error :'+errResponse.data);
+                    function (errResponse) {
+                        console.error('Error while removing user ' + id + ', Error :' + errResponse.data);
                     }
                 );
         }
@@ -93,8 +93,8 @@ angular.module('crudApp').controller('UserController',
         }
 
         function editUser(id) {
-            self.successMessage='';
-            self.errorMessage='';
+            self.successMessage = '';
+            self.errorMessage = '';
             UserService.getUser(id).then(
                 function (user) {
                     self.user = user;
@@ -104,10 +104,11 @@ angular.module('crudApp').controller('UserController',
                 }
             );
         }
-        function reset(){
-            self.successMessage='';
-            self.errorMessage='';
-            self.user={};
+
+        function reset() {
+            self.successMessage = '';
+            self.errorMessage = '';
+            self.user = {};
             $scope.myForm.$setPristine(); //reset Form
         }
     }
